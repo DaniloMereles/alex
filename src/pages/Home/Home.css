@@ -1,0 +1,28 @@
+.home__products{
+    width: 90%;
+    padding: 20px;
+    margin: 15px auto;
+}
+
+.home__title{
+    text-align: center;
+    color: var(--Black);
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 10px;
+}
+
+.home__list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    justify-items: center;
+    gap: 30px;
+}
+
+@media (max-width: 500px){
+    .home__list{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
