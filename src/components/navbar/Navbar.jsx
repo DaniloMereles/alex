@@ -2,11 +2,11 @@ import logo from '../../assets/alex-logo.svg'
 import { NavLink } from 'react-router-dom'
 import './Navbar.css'
 import { useContext } from 'react'
-import { context } from '../../context/Contex'
+import { context } from '../../context/Context'
 export const Navbar = () => {
-    const {state} = useContext(context)
+    const {state, userLogout} = useContext(context)
 
-    console.log(state)
+
 
     return (
         <nav className="navbar">
@@ -17,7 +17,7 @@ export const Navbar = () => {
 
                 <NavLink to="/cart" className="navbar__cart">
                     <i className='bx bx-cart-alt'></i>
-                    
+                        
                     {
                         state.quantityInCart > 0 ? <p className="navbar__cart-number"> { state.quantityInCart } </p> : null
                     }
@@ -25,15 +25,19 @@ export const Navbar = () => {
             </div>
 
             <div className="navbar__data">
-                <p className="navbar__text">
-                    <i className='bx bx-phone-call' ></i>
-                    Call Center: +595 23 345 6800
-                </p>
+                <h2 className="navbar__text">
+                    Total Price: {`${new Intl.NumberFormat().format(state.totalPrice)} Gs `}
+                </h2>
 
-                <p className="navbar__text">
-                    <i className='bx bxs-truck'></i>
-                    Zonas de cobertura
-                </p>
+                <h2 className="navbar__text">
+                    {
+                        ` ${state.user.username} - ${state.user.email} ` 
+                    }
+                </h2>
+
+                <button className="navbar__logout" onClick={() => userLogout()}>
+                    <i className='bx bx-log-out'></i>
+                </button>
             </div>
         </nav>
     )

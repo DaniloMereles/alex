@@ -39,8 +39,10 @@ export const initialCart = {
             url: "https://cutt.ly/fRY4iKY"
         }
     ],
+    user: undefined,
     cart: [],
-    quantityInCart: 0
+    quantityInCart: 0,
+    totalPrice: 0,
 }
 
 export const cartReducer = (state, action) => {
@@ -50,19 +52,35 @@ export const cartReducer = (state, action) => {
             return {
                 ...state, 
                 cart: [action.payload, ...state.cart],
-                quantityInCart: state.quantityInCart + 1 
+                quantityInCart: state.quantityInCart + 1,
+                totalPrice: state.totalPrice + action.payload.price
             }
         case TYPES.REMOVE_ONE_FROM_CART:
             return {
                 ...state,
-                cart: state.cart.filter(product => product.id !== action.payload),
-                quantityInCart: state.quantityInCart - 1
+                cart: state.cart.filter(product => product.id !== action.payload.id),
+                quantityInCart: state.quantityInCart - 1,
+                totalPrice: state.totalPrice - action.payload.price 
             }
         case TYPES.REMOVE_ALL_FROM_CART:
             return {
                 ...state, 
                 cart: [],
-                quantityInCart: 0
+                quantityInCart: 0,
+                totalPrice: 0
+            }
+        case TYPES.USER_AUTH: 
+            return {
+                ...state,
+                user: action.payload
+            }
+        case TYPES.USER_LOGOUT:
+            return {
+                ...state,
+                user: undefined,
+                cart: [],
+                quantityInCart: 0,
+                totalPrice: 0,
             }
         default:
             return state

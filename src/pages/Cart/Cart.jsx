@@ -1,12 +1,12 @@
 import { Navbar } from "../../components/navbar/Navbar"
 import { ProductInCart } from "../../components/productInCart/ProductInCart"
-import { context } from "../../context/Contex"
+import { context } from "../../context/Context"
 import { useContext } from 'react'
 import './Cart.css'
 export const Cart = () => {
     const {state, removeAllFromCart} = useContext(context)
     const {cart} = state
-
+    
     return (
         <div>
             <Navbar />
@@ -24,7 +24,7 @@ export const Cart = () => {
             <div className="cart__products">
                 {
                     cart 
-                    ? cart.map(product => ( <ProductInCart product={product}/> ))  
+                    ? cart.map(product => ( <ProductInCart key={product.id} product={product}/> ))  
                     : <h2>Sin productos</h2>
                 }
             </div>

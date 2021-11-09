@@ -1,11 +1,11 @@
 import './App.css'
-import { Contex } from './context/Contex'
-import { Routes } from './Routes'
+import { Context } from './context/Context'
+import { Routes } from './routes/Routes'
 
 export const App = () => {
   return (
-    <Contex>
+    <Context>
       <Routes />
-    </Contex>
+    </Context>
   )
 }

@@ -1,8 +1,8 @@
 import { useContext } from 'react'
-import { context } from '../../context/Contex'
+import { context } from '../../context/Context'
 import './ProductInCart.css'
 export const ProductInCart = ({product}) => {
-    const { name, url, price, id } = product
+    const { name, url, price } = product
     const { removeOneFromCart } = useContext(context)
 
     return (
@@ -15,12 +15,12 @@ export const ProductInCart = ({product}) => {
                     </h2>
 
                     <p className="cartProduct__price">
-                    {`${new Intl.NumberFormat().format(price)}Gs `}
+                        {`${new Intl.NumberFormat().format(price)}Gs `}
                     </p>
                 </div>
             </div>
 
-            <button onClick={() => removeOneFromCart(id)} className="cartProduct__btn btn">
+            <button onClick={() => removeOneFromCart(product)} className="cartProduct__btn btn">
                 Remove from cart
             </button>
         </article>

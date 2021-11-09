@@ -2,7 +2,7 @@ import './Home.css'
 import { Navbar } from "../../components/navbar/Navbar"
 import { Product } from "../../components/product/Product"
 import { useContext } from 'react'
-import { context } from '../../context/Contex'
+import { context } from '../../context/Context'
 
 export const Home = () => {
     const {state} = useContext(context)

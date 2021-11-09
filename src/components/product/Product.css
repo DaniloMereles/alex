@@ -48,3 +48,8 @@
     align-items: center;
     cursor: pointer;
 }
+
+.product__add:hover{
+    transform: scale(1.2);
+    transition: all .40s ease-in-out;
+}

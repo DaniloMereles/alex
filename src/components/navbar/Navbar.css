@@ -57,3 +57,19 @@
     font-size: 50px;
     color: var(--Black);
 }
+
+.navbar__logout{
+    width: 70px;
+    height: 40px;
+    margin-left: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: var(--White);
+    color: var(--Black);
+    font-size: 22px;
+}
